@@ -37,3 +37,9 @@ resource "aws_ecs_cluster_capacity_providers" "lifebit-cp" {
     capacity_provider = "FARGATE"
   }
 }
+resource "aws_ecs_task_definition" "lifebit-task-definition" {
+  family = "lifebit-td"
+  network_mode = "awsvpc"
+  cpu       = 1024
+  memory    = 2048
+  container_definitions = jsonencode([
