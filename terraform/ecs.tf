@@ -80,3 +80,11 @@ resource "aws_ecs_service" "lifebit-service" {
     assign_public_ip = true
   }
 }
+
+resource "aws_lb_target_group" "lifebit-tg" {
+  name     = ""
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = var.vpc_id
+  target_type = "ip"
+}
