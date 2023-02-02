@@ -70,8 +70,8 @@ resource "aws_ecs_service" "lifebit-service" {
   ]
    load_balancer {
     target_group_arn = aws_lb_target_group.lifebit-tg.arn
-    container_name   = ""
-    container_port   = 
+    container_name   = "lifebit-app"
+    container_port   = 3000
   }
 
   network_configuration {
