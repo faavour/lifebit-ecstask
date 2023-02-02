@@ -26,3 +26,8 @@ resource "aws_ecs_cluster" "lifebit-cluster" {
     }
   }
 }
+
+resource "aws_ecs_cluster_capacity_providers" "lifebit-cp" {
+  cluster_name = aws_ecs_cluster.lifebit-cluster.name
+
+  capacity_providers = ["FARGATE"]
