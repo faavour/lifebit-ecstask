@@ -68,3 +68,15 @@ resource "aws_ecs_service" "lifebit-service" {
   depends_on = [
     aws_iam_policy.lifebit-policy  
   ]
+   load_balancer {
+    target_group_arn = aws_lb_target_group.lifebit-tg.arn
+    container_name   = ""
+    container_port   = 
+  }
+
+  network_configuration {
+    subnets = var.subnets
+    security_groups = [var.security_group_id]
+    assign_public_ip = true
+  }
+}
