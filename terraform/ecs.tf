@@ -88,3 +88,7 @@ resource "aws_lb_target_group" "lifebit-tg" {
   vpc_id   = var.vpc_id
   target_type = "ip"
 }
+resource "aws_lb_listener" "lifebit-lb-listener" {
+  load_balancer_arn = aws_lb.lifebit-lb.arn
+  port              = "80"
+  protocol          = "HTTP"
