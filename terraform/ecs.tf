@@ -43,3 +43,16 @@ resource "aws_ecs_task_definition" "lifebit-task-definition" {
   cpu       = 1024
   memory    = 2048
   container_definitions = jsonencode([
+    {
+      name      = ""
+      image     = ""
+      essential = true
+      cpu = 512
+      memory    = 1024
+      portMappings = [
+        {
+          containerPort = 
+          hostPort      = 
+        }
+      ]
+    }])
