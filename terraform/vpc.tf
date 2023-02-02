@@ -18,3 +18,10 @@ resource "aws_route_table" "rt" {
     Name = "Lifebit RT"
   }
 }
+
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.lifebit-vpc.id
+  tags = {
+    Name = "Lifebit GW"
+  }
+}
