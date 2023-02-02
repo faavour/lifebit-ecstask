@@ -153,7 +153,7 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy-attach
 #   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 # }
 
-# Load balancers
+# For Load balancers
 resource "aws_lb" "lifebit-lb" {
   name               = "lifebit-lb"
   internal           = false
