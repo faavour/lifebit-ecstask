@@ -81,6 +81,19 @@ resource "aws_ecs_service" "lifebit-service" {
   }
 }
 
+# For Load balancers
+resource "aws_lb" "lifebit-lb" {
+  name               = "lifebit-lb"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [var.security_group_id]
+  subnets            = [for subnet in var.subnets : subnet]
+
+  tags = {
+    Environment = "production"
+  }
+}
+
 resource "aws_lb_target_group" "lifebit-tg" {
   name     = "lifebit-tg"
   port     = 80
@@ -153,15 +166,3 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy-attach
 #   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 # }
 
-# For Load balancers
-resource "aws_lb" "lifebit-lb" {
-  name               = "lifebit-lb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [var.security_group_id]
-  subnets            = [for subnet in var.subnets : subnet]
-
-  tags = {
-    Environment = "production"
-  }
-}
