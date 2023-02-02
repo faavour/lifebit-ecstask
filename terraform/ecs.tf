@@ -155,7 +155,7 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy-attach
 
 # Load balancers
 resource "aws_lb" "lifebit-lb" {
-  name               = ""
+  name               = "lifebit-lb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.security_group_id]
