@@ -5,3 +5,9 @@ resource "aws_vpc" "lifebit-vpc" {
     Name = "lifebit VPC"
   }
 }
+
+resource "aws_route_table" "rt" {
+  vpc_id = aws_vpc.lifebit-vpc.id
+
+  
+}
