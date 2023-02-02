@@ -15,6 +15,6 @@ resource "aws_route_table" "rt" {
   }
 
   tags = {
-    Name = ""
+    Name = "Lifebit RT"
   }
 }
