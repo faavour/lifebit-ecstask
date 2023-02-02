@@ -59,3 +59,12 @@ resource "aws_ecs_task_definition" "lifebit-task-definition" {
 
        requires_compatibilities = ["FARGATE"]
 }
+resource "aws_ecs_service" "lifebit-service" {
+  name            = "lifebit"
+  cluster         = aws_ecs_cluster.lifebit-cluster.id
+  task_definition = aws_ecs_task_definition.lifebit-task-definition.arn
+  desired_count   = 1
+  deployment_maximum_percent         = 200
+  depends_on = [
+    aws_iam_policy.lifebit-policy  
+  ]
