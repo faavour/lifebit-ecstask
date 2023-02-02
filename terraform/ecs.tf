@@ -56,3 +56,6 @@ resource "aws_ecs_task_definition" "lifebit-task-definition" {
         }
       ]
     }])
+
+       requires_compatibilities = ["FARGATE"]
+}
