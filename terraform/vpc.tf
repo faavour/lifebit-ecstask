@@ -25,3 +25,16 @@ resource "aws_internet_gateway" "gw" {
     Name = "Lifebit GW"
   }
 }
+
+resource "aws_subnet" "public" {
+  count                   = 2
+  vpc_id                  = aws_vpc.lifebit-vpc.id
+  cidr_block              = element(var.public_subnet_ciders, count.index)
+  availability_zone       = element(var.aws_azs, count.index)
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "Lifebit-Public-Subnet-${count.index + 1}"
+  }
+}
+
