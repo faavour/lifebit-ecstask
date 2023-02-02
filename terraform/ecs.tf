@@ -137,3 +137,8 @@ resource "aws_iam_role" "lifebit-role" {
     ]
   })
 }
+
+resource "aws_iam_role_policy_attachment" "ecs-iam-policy-attachment" {
+  role       = aws_iam_role.lifebit-role.name
+  policy_arn = aws_iam_policy.lifebit-policy.arn
+}
