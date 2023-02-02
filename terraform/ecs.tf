@@ -44,8 +44,8 @@ resource "aws_ecs_task_definition" "lifebit-task-definition" {
   memory    = 2048
   container_definitions = jsonencode([
     {
-      name      = ""
-      image     = ""
+      name      = "lifebit-app"
+      image     = "faavour/lifebit-image"
       essential = true
       cpu = 512
       memory    = 1024
