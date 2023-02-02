@@ -51,8 +51,8 @@ resource "aws_ecs_task_definition" "lifebit-task-definition" {
       memory    = 1024
       portMappings = [
         {
-          containerPort = 
-          hostPort      = 
+          containerPort = 3000
+          hostPort      = 3000
         }
       ]
     }])
