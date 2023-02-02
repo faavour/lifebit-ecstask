@@ -118,3 +118,12 @@ resource "aws_iam_policy" "lifebit-policy" {
     ]
   })
 }
+resource "aws_iam_role" "lifebit-role" {
+  name = "lifebit-role"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
