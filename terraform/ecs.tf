@@ -14,3 +14,7 @@ resource "aws_ecs_cluster" "lifebit-cluster" {
     name  = "containerInsights"
     value = "enabled"
   }
+  configuration {
+    execute_command_configuration {
+      kms_key_id = aws_kms_key.lifebit-app-kms.arn
+      logging    = "OVERRIDE"
