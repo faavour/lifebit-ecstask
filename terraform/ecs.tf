@@ -148,7 +148,20 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy-attach
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-resource "aws_iam_role_policy_attachment" "ecs-s3-policy-attachment" {
-  role       = aws_iam_role.lifebit-role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+# resource "aws_iam_role_policy_attachment" "ecs-s3-policy-attachment" {
+#   role       = aws_iam_role.lifebit-role.name
+#   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+# }
+
+# Load balancers
+resource "aws_lb" "lifebit-lb" {
+  name               = ""
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [var.security_group_id]
+  subnets            = [for subnet in var.subnets : subnet]
+
+  tags = {
+    Environment = "production"
+  }
 }
