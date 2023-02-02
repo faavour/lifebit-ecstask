@@ -31,3 +31,9 @@ resource "aws_ecs_cluster_capacity_providers" "lifebit-cp" {
   cluster_name = aws_ecs_cluster.lifebit-cluster.name
 
   capacity_providers = ["FARGATE"]
+    default_capacity_provider_strategy {
+    base              = 1
+    weight            = 50
+    capacity_provider = "FARGATE"
+  }
+}
