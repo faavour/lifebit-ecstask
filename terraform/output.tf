@@ -13,3 +13,6 @@ output "vpc_id" {
 output "security_group_id" {
     value = aws_security_group.http_traffic.id
 }
+output "subnets" {
+    value = aws_subnet.public[*].id
+}
