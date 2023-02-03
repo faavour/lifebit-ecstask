@@ -21,3 +21,7 @@ variable "vpc_id" {
     description = "The ID of the VPC to deploy resources into"
 }
 
+variable "security_group_id" {
+    type = string
+    description = "The ID of the security group"
+}
