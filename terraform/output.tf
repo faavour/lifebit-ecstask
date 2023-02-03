@@ -10,3 +10,6 @@ output "ecs_cluster"{
 output "vpc_id" {
     value = aws_vpc.lifebit-vpc.id
 }
+output "security_group_id" {
+    value = aws_security_group.http_traffic.id
+}
