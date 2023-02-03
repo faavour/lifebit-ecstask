@@ -161,10 +161,10 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy-attach
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-# resource "aws_iam_role_policy_attachment" "ecs-s3-policy-attachment" {
-#   role       = aws_iam_role.lifebit-role.name
-#   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
-# }
+resource "aws_iam_role_policy_attachment" "ecs-s3-policy-attachment" {
+  role       = aws_iam_role.lifebit-role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
 
 # Add autoscaling
 
