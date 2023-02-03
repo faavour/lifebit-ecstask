@@ -44,3 +44,6 @@ resource "aws_route_table_association" "rta" {
   route_table_id = aws_route_table.rt.id
 }
 
+resource "aws_security_group" "http_traffic" {
+  name        = "allow_http"
+  description = "Allow http traffic"
