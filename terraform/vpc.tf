@@ -46,9 +46,10 @@ resource "aws_route_table_association" "rta" {
 }
 
 resource "aws_security_group" "http_traffic" {
-  name        = "allow_http"
-  description = "Allow http traffic"
-    vpc_id      = aws_vpc.lifebit-vpc.id
+  name                = "allow_http"
+  description         = "Allow http traffic"
+    vpc_id            = aws_vpc.lifebit-vpc.id
+    security_group_id = 
 
   ingress {
     description      = "HTTP from VPC"
