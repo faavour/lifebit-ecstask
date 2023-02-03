@@ -26,3 +26,6 @@ variable "security_group_id" {
     description = "The ID of the security group"
 }
 variable "subnets" {
+    type = list(string)
+    description = "A list of subnets to deploy resources into"
+}
