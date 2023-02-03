@@ -11,3 +11,5 @@ variable "public_subnet_ciders" {
 variable "aws_azs" {
     type = list(string)
     description = "List of availability zones to deploy resources into"
+    default = ["eu-west-2a", "eu-west-2b"]
+}
