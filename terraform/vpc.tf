@@ -73,3 +73,7 @@ resource "aws_security_group" "http_traffic" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
+  tags = {
+    Name = "Allow HTTP"
+  }
+}
