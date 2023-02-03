@@ -7,3 +7,6 @@ output "ecs_service"{
 output "ecs_cluster"{
     value = aws_ecs_cluster.lifebit-cluster.name
 }
+output "vpc_id" {
+    value = aws_vpc.lifebit-vpc.id
+}

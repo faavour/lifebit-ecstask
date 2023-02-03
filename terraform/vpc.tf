@@ -1,7 +1,5 @@
 resource "aws_vpc" "lifebit-vpc" {
   cidr_block = var.vpc_cider
-  vpc_id = aws_vpc.lifebit-vpc.id
-
   tags = {
     Name = "lifebit VPC"
   }
@@ -49,7 +47,6 @@ resource "aws_security_group" "http_traffic" {
   name                = "allow_http"
   description         = "Allow http traffic"
     vpc_id            = aws_vpc.lifebit-vpc.id
-    security_group_id = 
 
   ingress {
     description      = "HTTP from VPC"
